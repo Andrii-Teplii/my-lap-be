@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+//all memory size we count equal = 1gb
+
+model Laptop {
+  id                           Int      @id @default(autoincrement())
+  title                        String
+  price                        Int
+  sellPrice                    Int?
+  description                  String
+  images                       String[]
+  brand                        String
+  display_size                 Float
+  display_resolution           String
+  display_type                 String
+  display_finish               String
+  display_sensor               Boolean
+  display_refreshRate          Int
+  cpu_name                     String
+  cpu_brand                    String
+  cpu_gen                      Int
+  cpu_power                    Int
+  ram_type                     String
+  ram_size                     Int
+  ram_emptySlot                Int
+  mem_ssd_size                 Int?
+  mem_ssd_type                 String?
+  mem_ssd_emptySlots           Int
+  mem_hdd_size                 Int?
+  mem_hdd_emptySlots           Int
+  graphicsCard_discrete_brand  String?
+  graphicsCard_discrete_model  String?
+  graphicsCard_discrete_memory Int?
+  graphicsCard_integrate_brand String
+  graphicsCard_integrate_model String
+  camera_mp                    Float?
+  camera_ir                    Boolean?
+  ports_usbTypeA               Int?
+  ports_usbTypeC               Int?
+  ports_HDMI                   Int?
+  ports_DisplayPort            Int?
+  ports_dvd                    Boolean
+  ports_audioJack              Int?
+  ports_rj45                   Boolean
+  keyboard_numBlock            Boolean
+  keyboard_light               String?
+  network_bluetooth            String
+  network_wifi                 String
+  network_sim                  String?
+  battery_twb                  Float?
+  dimensions_w                 Float
+  dimensions_d                 Float
+  dimensions_h                 Float
+  dimensions_kg                Float
+  originalBox                  Boolean
+}

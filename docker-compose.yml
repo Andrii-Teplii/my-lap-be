@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres_db:
+    image: postgres:15-alpine # Беремо легку версію PostgreSQL
+    container_name: laptop_store_db
+    restart: always
+    environment:
+      POSTGRES_USER: nestuser
+      POSTGRES_PASSWORD: supersecretpassword
+      POSTGRES_DB: laptopstore
+    ports:
+      - "5432:5432" # Прокидаємо порт бази на ваш комп'ютер
+    volumes:
+      - pgdata:/var/lib/postgresql/data # Зберігаємо дані, щоб вони не зникли після перезавантаження комп'ютера
+
+volumes:
+  pgdata:
